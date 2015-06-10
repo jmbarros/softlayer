@@ -1,0 +1,19 @@
+###### IP 1 ######
+vrrp_instance ip1 {
+  interface                 eth1
+  state                     MASTER
+  virtual_router_id         50
+  priority                  101
+  advert_int                1
+  garp_master_delay         5
+
+  authentication {
+    auth_type PASS
+    auth_pass secret
+  }
+
+  virtual_ipaddress {
+    169.54.XXXXXXX dev eth1 #####VIP IP
+  }
+
+}
