@@ -1,0 +1,1223 @@
+firewall {
+    group {
+        address-group IPSecPeers {
+            address #IP_CUSTOMMER#
+        }
+        address-group VRRPbond0 {
+            description "bond0 IP addresses of both Vyattas"
+        }
+        address-group VRRPbond1 {
+            description "bond1 IP addresses of both Vyattas"
+        }
+        network-group AccountBack {
+            network #IP_VLAN_BACKEND/SUBNET#
+        }
+        network-group AccountFront {
+            network #IP_VLAN_FRONT_END/SUBNET#
+        }
+        network-group RemoteVPNSubnets {
+            network #REMOTE_IP_VLAN/SUBNET#
+            network #REMOTE_IP_VLAN/SUBNET#
+        }
+        network-group SoftLayerBack {
+            description "SoftLayer Back End"
+            network 10.0.64.0/19
+            network 10.1.0.0/23
+            network 10.1.11.0/24
+            network 10.1.128.0/19
+            network 10.1.16.0/23
+            network 10.1.160.0/20
+            network 10.1.176.0/20
+            network 10.1.19.0/24
+            network 10.1.192.0/20
+            network 10.1.2.0/24
+            network 10.1.208.0/20
+            network 10.1.224.0/23
+            network 10.1.227.0/24
+            network 10.1.232.0/24
+            network 10.1.233.0/24
+            network 10.1.236.0/24
+            network 10.1.238.0/24
+            network 10.1.24.0/23
+            network 10.1.27.0/24
+            network 10.1.33.0/24
+            network 10.1.34.0/24
+            network 10.1.37.0/24
+            network 10.1.38.0/24
+            network 10.1.40.0/24
+            network 10.1.41.0/24
+            network 10.1.42.0/24
+            network 10.1.45.0/24
+            network 10.1.46.0/24
+            network 10.1.49.0/24
+            network 10.1.53.0/24
+            network 10.1.54.0/24
+            network 10.1.56.0/23
+            network 10.1.59.0/24
+            network 10.1.64.0/19
+            network 10.1.8.0/23
+            network 10.1.96.0/19
+            network 10.2.112.0/20
+            network 10.2.128.0/20
+            network 10.2.144.0/20
+            network 10.2.160.0/20
+            network 10.2.176.0/20
+            network 10.2.192.0/23
+            network 10.2.195.0/24
+            network 10.2.200.0/23
+            network 10.2.203.0/24
+            network 10.2.208.0/23
+            network 10.2.211.0/24
+            network 10.2.216.0/24
+            network 10.2.217.0/24
+            network 10.2.220.0/24
+            network 10.2.221.0/24
+            network 10.2.224.0/24
+            network 10.2.225.0/24
+            network 10.2.228.0/24
+            network 10.2.229.0/24
+            network 10.2.232.0/24
+            network 10.2.233.0/24
+            network 10.2.236.0/24
+            network 10.2.237.0/24
+            network 10.2.32.0/20
+            network 10.2.48.0/20
+            network 10.2.64.0/20
+            network 10.2.80.0/20
+            network 10.200.0.0/20
+            network 10.200.236.0/24
+            network 10.200.237.0/24
+            network 10.3.112.0/20
+            network 10.3.128.0/20
+            network 10.3.144.0/20
+            network 10.3.160.0/20
+            network 10.3.176.0/20
+            network 10.3.204.0/24
+            network 10.3.205.0/24
+            network 10.3.212.0/24
+            network 10.3.213.0/24
+            network 10.3.216.0/24
+            network 10.3.217.0/24
+            network 10.3.220.0/24
+            network 10.3.221.0/24
+            network 10.3.224.0/24
+            network 10.3.225.0/24
+            network 10.3.228.0/24
+            network 10.3.229.0/24
+            network 10.3.232.0/24
+            network 10.3.233.0/24
+            network 10.3.236.0/24
+            network 10.3.237.0/24
+            network 10.3.64.0/20
+            network 10.3.80.0/20
+            network 10.3.96.0/20
+        }
+        network-group SoftLayerFront {
+            description "SoftLayer Front End"
+            network 159.253.158.0/23
+            network 119.81.136.0/24
+            network 119.81.138.0/23
+            network 158.85.116.0/24
+            network 158.85.118.0/23
+            network 159.122.116.0/24
+            network 159.122.118.0/23
+            network 159.122.136.0/24
+            network 159.122.138.0/23
+            network 159.253.156.0/24
+            network 159.8.116.0/24
+            network 159.8.118.0/23
+            network 159.8.196.0/24
+            network 159.8.198.0/23
+            network 161.202.116.0/24
+            network 161.202.118.0/23
+            network 168.1.116.0/24
+            network 168.1.118.0/23
+            network 168.1.16.0/24
+            network 168.1.18.0/23
+            network 169.45.118.0/23
+            network 169.54.116.0/24
+            network 169.54.118.0/23
+            network 169.55.118.0/23
+            network 169.57.116.0/24
+            network 169.57.118.0/23
+            network 169.57.136.0/24
+            network 169.57.138.0/23
+            network 173.192.118.0/23
+            network 173.193.116.0/24
+            network 173.193.118.0/23
+            network 174.133.116.0/24
+            network 174.133.118.0/23
+            network 184.172.118.0/23
+            network 198.23.118.0/23
+            network 208.43.118.0/23
+            network 5.10.116.0/24
+            network 5.10.118.0/23
+            network 50.22.118.0/23
+            network 50.22.255.0/24
+            network 50.23.116.0/24
+            network 50.23.118.0/23
+            network 50.23.167.0/24
+            network 66.228.118.0/23
+            network 67.228.118.0/23
+            network 75.126.61.0/24
+            network 173.192.255.230/32
+        }
+    }
+    name SERVICE-ALLOW {
+        rule 1 {
+            action accept
+            destination {
+                address 10.0.64.0/19
+            }
+        }
+        rule 2 {
+            action accept
+            destination {
+                address 10.1.128.0/19
+            }
+        }
+        rule 3 {
+            action accept
+            destination {
+                address 10.0.86.0/24
+            }
+        }
+        rule 4 {
+            action accept
+            destination {
+                address 10.2.128.0/20
+            }
+        }
+        rule 5 {
+            action accept
+            destination {
+                address 10.1.176.0/20
+            }
+        }
+        rule 6 {
+            action accept
+            destination {
+                address 10.1.64.0/19
+            }
+        }
+        rule 7 {
+            action accept
+            destination {
+                address 10.1.96.0/19
+            }
+        }
+        rule 8 {
+            action accept
+            destination {
+                address 10.1.192.0/20
+            }
+        }
+        rule 9 {
+            action accept
+            destination {
+                address 10.1.160.0/20
+            }
+        }
+        rule 10 {
+            action accept
+            destination {
+                address 10.2.32.0/20
+            }
+        }
+        rule 11 {
+            action accept
+            destination {
+                address 10.2.64.0/20
+            }
+        }
+        rule 12 {
+            action accept
+            destination {
+                address 10.2.112.0/20
+            }
+        }
+        rule 13 {
+            action accept
+            destination {
+                address 10.2.160.0/20
+            }
+        }
+        rule 14 {
+            action accept
+            destination {
+                address 10.1.208.0/20
+            }
+        }
+        rule 15 {
+            action accept
+            destination {
+                address 10.2.80.0/20
+            }
+        }
+        rule 16 {
+            action accept
+            destination {
+                address 10.2.144.0/20
+            }
+        }
+        rule 17 {
+            action accept
+            destination {
+                address 10.2.48.0/20
+            }
+        }
+        rule 18 {
+            action accept
+            destination {
+                address 10.2.176.0/20
+            }
+        }
+        rule 19 {
+            action accept
+            destination {
+                address 10.3.64.0/20
+            }
+        }
+        rule 20 {
+            action accept
+            destination {
+                address 10.3.80.0/20
+            }
+        }
+    }
+    name external-2-internal {
+        default-action drop
+        enable-default-log
+    }
+    name external-2-local {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Allow (example) Zabbix Server tool to monitor this Vyatta"
+            destination {
+                port 10050
+            }
+            log enable
+            protocol tcp
+            source {
+                address #REMOTE_ZABBIX_SERVER_IP#
+            }
+        }
+        rule 3 {
+            action accept
+            description "Allow ICMP from VPN peers"
+            log enable
+            protocol icmp
+            source {
+                group {
+                    address-group IPSecPeers
+                }
+            }
+        }
+        rule 4 {
+            action accept
+            description "Permit traffic between Vyatta VRRP cluster nodes"
+            source {
+                group {
+                    address-group VRRPbond1
+                }
+            }
+        }
+        rule 5 {
+            action accept
+            description "Allow SoftLayerFront to reach local system"
+            source {
+                group {
+                    network-group SoftLayerFront
+                }
+            }
+        }
+        rule 6 {
+            action accept
+            description "Allow ESP from VPN peers"
+            log enable
+            protocol esp
+            source {
+                group {
+                    address-group IPSecPeers
+                }
+            }
+        }
+        rule 7 {
+            action accept
+            description "Allow common VPN ports from VPN peers"
+            destination {
+                port 500,1701,4500,1723
+            }
+            log enable
+            protocol udp
+            source {
+                group {
+                    address-group IPSecPeers
+                }
+            }
+        }
+        rule 22 {
+            action accept
+            description "SSH Vyatta Public"
+            destination {
+                port 22
+            }
+            protocol tcp
+        }
+    }
+    name external-2-private {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Allow and log ICMP from remote VPN subnets to private subnets via IPSec VPN tunnel"
+            destination {
+                group {
+                    network-group AccountBack
+                }
+            }
+            protocol icmp
+            source {
+                group {
+                    network-group RemoteVPNSubnets
+                }
+            }
+        }
+        rule 3 {
+            action accept
+            description "Allow VPN traffic from remote subnets to private subnets via IPSec VPN tunnel"
+            destination {
+                group {
+                    network-group AccountBack
+                }
+            }
+            log enable
+            source {
+                group {
+                    network-group RemoteVPNSubnets
+                }
+            }
+        }
+    }
+    name external-2-public {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Allow SoftLayerFront to reach servers on public zone"
+            source {
+                group {
+                    network-group SoftLayerFront
+                }
+            }
+        }
+    }
+    name internal-2-external {
+        default-action drop
+        enable-default-log
+    }
+    name internal-2-local {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Permit and log ICMP from internal networks (safe)"
+            log enable
+            protocol icmp
+        }
+        rule 3 {
+            action accept
+            description "Permit all traffic that comes from SoftLayerBack"
+            source {
+                group {
+                    network-group SoftLayerBack
+                }
+            }
+        }
+        rule 4 {
+            action accept
+            description "Permit traffic between Vyatta VRRP cluster nodes"
+            source {
+                group {
+                    address-group VRRPbond0
+                }
+            }
+        }
+    }
+    name internal-2-private {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Permit and log ICMP from internal networks (safe)"
+            log enable
+            protocol icmp
+        }
+        rule 3 {
+            action accept
+            description "Permit all traffic that comes from SoftLayerBack"
+            source {
+                group {
+                    network-group SoftLayerBack
+                }
+            }
+        }
+    }
+    name internal-2-public {
+        default-action drop
+        enable-default-log
+    }
+    name local-2-external {
+        default-action accept
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Skip VRRP from log"
+            protocol 112
+        }
+        rule 3 {
+            action accept
+            description "Skip syslog from log"
+            destination {
+                port 514
+            }
+            protocol udp
+        }
+    }
+    name local-2-internal {
+        default-action accept
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Skip VRRP from log"
+            protocol 112
+        }
+    }
+    name local-2-private {
+        default-action accept
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Exclude VRRP from logs"
+            protocol 112
+        }
+    }
+    name local-2-public {
+        default-action accept
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Exclude VRRP from logs"
+            protocol 112
+        }
+    }
+    name private-2-external {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Permit and log ICMP from private zone"
+            log enable
+            protocol icmp
+        }
+        rule 3 {
+            action accept
+            description "Allow common internet ports"
+            destination {
+                port 20,21,22,25,53,69,80,115,123,137,139,443
+            }
+            protocol tcp_udp
+        }
+        rule 4 {
+            action accept
+            description "Allow outgoing traffic to VPN remote prefix subnets"
+            destination {
+                group {
+                    network-group RemoteVPNSubnets
+                }
+            }
+            log enable
+        }
+    }
+    name private-2-internal {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Permit and log ICMP from private zone"
+            log enable
+            protocol icmp
+        }
+        rule 3 {
+            action accept
+            description "Permit ALL traffic from Private zone to SoftLayerBack, not logged"
+            destination {
+                group {
+                    network-group SoftLayerBack
+                }
+            }
+        }
+    }
+    name private-2-local {
+        default-action accept
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Exclude VRRP from logs"
+            protocol 112
+        }
+    }
+    name private-2-public {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Permit and log ICMP from private zone"
+            log enable
+            protocol icmp
+        }
+        rule 3 {
+            action accept
+            description "Permit communication from private to public server vlans"
+            destination {
+                group {
+                    network-group AccountFront
+                }
+            }
+            protocol tcp_udp
+            source {
+                group {
+                    network-group AccountBack
+                }
+            }
+        }
+    }
+    name public-2-external {
+        default-action accept
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Permit and log ICMP from public zone (dmz)"
+            log enable
+            protocol icmp
+        }
+        rule 3 {
+            action accept
+            description "Permit ALL traffic from Public zone to SoftLayerFront, not logged"
+            destination {
+                group {
+                    network-group SoftLayerFront
+                }
+            }
+        }
+    }
+    name public-2-internal {
+        default-action drop
+        enable-default-log
+    }
+    name public-2-local {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Permit and log ICMP from public zone (dmz)"
+            log enable
+            protocol icmp
+        }
+        rule 3 {
+            action accept
+            description "Permit VRRP from public zone (dmz)"
+            protocol 112
+        }
+    }
+    name public-2-private {
+        default-action drop
+        enable-default-log
+        rule 1 {
+            action accept
+            description "Stateful rules"
+            state {
+                established enable
+                related enable
+            }
+        }
+        rule 2 {
+            action accept
+            description "Permit and log ICMP from public zone (dmz)"
+            log enable
+            protocol icmp
+        }
+    }
+    send-redirects enable
+}
+interfaces {
+    bonding bond0 {
+        address #VYATTA_BOND_PRIVATE_IP#
+        hash-policy layer3+4
+        mode 802.3ad
+        vif #VYATTA_VIF_PRIVATE_VLAN_ID# {
+            address #VYATTA_VIF_PRIVATE_IP/SUBNET#
+        }
+        vrrp {
+            vrrp-group 1 {
+                preempt false
+                priority 254
+                rfc3768-compatibility
+                sync-group vgroup1
+                virtual-address #VYATTA_VRRP_PRIVATE_IP/SUBNET#
+            }
+        }
+    }
+    bonding bond1 {
+        address #VYATTA_BOND_PUBLIC_IP/SUBNET#
+        address #VYATTA_BOND_PUBLIC_IP_V6/SUBNET#
+        hash-policy layer3+4
+        mode 802.3ad
+        vif #VYATTA_VIF_PUBLIC_VLAN_ID# {
+            address #VYATTA_VIF_PUBLIC_IP/SUBNET#
+        }
+        vrrp {
+            vrrp-group 1 {
+                preempt false
+                priority 254
+                rfc3768-compatibility
+                sync-group vgroup1
+                virtual-address #VYATTA_VRRP_PUBLIC_IP/SUBNET#
+            }
+        }
+    }
+    ethernet eth0 {
+        bond-group bond0
+        hw-id 0c:c4:7a:58:6e:##
+        speed auto
+    }
+    ethernet eth1 {
+        bond-group bond1
+        hw-id 0c:c4:7a:58:6e:##
+        speed auto
+    }
+    ethernet eth2 {
+        bond-group bond0
+        hw-id 0c:c4:7a:58:6e:##
+        speed auto
+    }
+    ethernet eth3 {
+        bond-group bond1
+        hw-id 0c:c4:7a:58:6e:##
+        speed auto
+    }
+    ethernet eth4 {
+        duplex auto
+        hw-id 0c:c4:7a:58:6e:##
+        speed auto
+    }
+    ethernet eth5 {
+        duplex auto
+        hw-id 0c:c4:7a:58:6e:##
+        speed auto
+    }
+    loopback lo {
+    }
+}
+nat {
+    source {
+        
+        }
+        rule 50 {
+            description "DISABLED - NAT to private network servers reach the internet"
+            disable
+            outbound-interface bond1
+            protocol all
+            source {
+                address 10.0.0.0/8
+            }
+            translation {
+                address masquerade
+            }
+        }
+    }
+}
+protocols {
+    static {
+        route 10.0.0.0/8 {
+            next-hop 10.150.145.129 {
+            }
+        }
+        route6 ::/0 {
+            next-hop 2607:f0d0:1d01:00a0:0000:0000:0000:0001 {
+            }
+        }
+    }
+}
+service {
+    https {
+        listen-address #VYATTA_BOND_PRIVATE_IP#
+    }
+    ssh {
+        port 22
+    }
+}
+system {
+    config-management {
+        commit-archive {
+            location ftp://#FTP_IP_SERVICE#
+        }
+        commit-revisions 20
+    }
+    config-sync {
+        sync-map SYNC {
+            rule 10 {
+                action include
+                location zone-policy
+            }
+            rule 11 {
+                action include
+                location protocols
+            }
+            rule 12 {
+                action include
+                location "system syslog"
+            }
+            rule 13 {
+                action include
+                location "system config-management"
+            }
+            rule 14 {
+                action include
+                location "system package"
+            }
+            rule 15 {
+                action include
+                location "system time-zone"
+            }
+        }
+    }
+    conntrack {
+    }
+    console {
+        device ttyS0 {
+            speed 9600
+        }
+    }
+    domain-name #CUSTOMMER#.local
+    gateway-address #PUBLIC_GATEWAY_IP#
+    host-name #VYATTA_HOSTNAME#
+    login {
+        user root {
+            authentication {
+                encrypted-password ****************
+                plaintext-password ****************
+            }
+            level admin
+        }
+        user vyatta {
+            authentication {
+                encrypted-password ****************
+                plaintext-password ****************
+            }
+            level admin
+        }
+    }
+    name-server 10.0.80.11
+    name-server 10.0.80.12
+    ntp {
+        server time.service.networklayer.com {
+        }
+    }
+    package {
+        repository squeeze {
+            components "main contrib non-free"
+            distribution squeeze
+            url http://mirrors.kernel.org/debian
+        }
+    }
+    syslog {
+        global {
+            archive {
+                files 100
+                size 500000
+            }
+            facility all {
+                level notice
+            }
+            facility protocols {
+                level debug
+            }
+        }
+        host #REMOTE_ZABBIX_SERVER_IP# {
+            facility all {
+                level warning
+            }
+            facility protocols {
+                level debug
+            }
+        }
+        user all {
+            facility all {
+                level emerg
+            }
+        }
+    }
+    time-zone America/Chicago
+}
+vpn {
+    ipsec {
+        disable-uniqreqids
+        esp-group ESP-1W {
+            compression disable
+            lifetime 3600
+            mode tunnel
+            pfs disable
+            proposal 1 {
+                encryption 3des
+                hash sha1
+            }
+            proposal 2 {
+                encryption 3des
+            }
+        }
+        esp-group ESP-G0 {
+            compression disable
+            lifetime 3600
+            mode tunnel
+            pfs disable
+            proposal 1 {
+                encryption aes256
+                hash sha1
+            }
+        }
+        esp-group ESP-GEQ {
+            lifetime 28800
+            mode tunnel
+            pfs dh-group5
+            proposal 1 {
+                encryption 3des
+                hash sha1
+            }
+        }
+        ike-group IKE-1W {
+            dead-peer-detection {
+                action restart
+                interval 30
+                timeout 120
+            }
+            lifetime 28800
+            proposal 1 {
+                dh-group 2
+                encryption 3des
+                hash sha1
+            }
+            proposal 2 {
+                encryption 3des
+                hash sha1
+            }
+        }
+        ike-group IKE-G0 {
+            lifetime 86400
+            proposal 1 {
+                dh-group 2
+                encryption 3des
+                hash md5
+            }
+        }
+        ike-group IKE-GEQ {
+            lifetime 28800
+            proposal 1 {
+                dh-group 5
+                encryption 3des
+                hash sha1
+            }
+        }
+        ipsec-interfaces {
+            interface bond1
+            interface bond1v1
+        }
+        logging {
+            log-modes all
+            log-modes control
+        }
+        nat-networks {
+            allowed-network 0.0.0.0/0 {
+            }
+        }
+        nat-traversal enable
+        site-to-site {
+            peer #IP_CUSTOMMER# {
+                authentication {
+                    mode pre-shared-secret
+                    pre-shared-secret ****************
+                }
+                default-esp-group ESP-GEQ
+                ike-group IKE-GEQ
+                local-address #VYATTA_BOND_PUBLIC_IP#
+                tunnel 1 {
+                    local {
+                        prefix #IP_VLAN_BACKEND/SUBNET#
+                    }
+                    remote {
+                        prefix #REMOTE_IP_VLAN/SUBNET#
+                    }
+                }
+                tunnel 2 {
+                    local {
+                        prefix #IP_VLAN_BACKEND/SUBNET#
+                    }
+                    remote {
+                        prefix #REMOTE_IP_VLAN/SUBNET#
+                    }
+                }
+            }
+        }
+    }
+}
+zone-policy {
+    zone external {
+        default-action drop
+        description "Internet zone"
+        from internal {
+            firewall {
+                name internal-2-external
+            }
+        }
+        from local {
+            firewall {
+                name local-2-external
+            }
+        }
+        from private {
+            firewall {
+                name private-2-external
+            }
+        }
+        from public {
+            firewall {
+                name public-2-external
+            }
+        }
+        interface bond1
+        interface bond1v1
+    }
+    zone internal {
+        default-action drop
+        description "SoftLayer internal zone"
+        from external {
+            firewall {
+                name external-2-internal
+            }
+        }
+        from local {
+            firewall {
+                name local-2-internal
+            }
+        }
+        from private {
+            firewall {
+                name private-2-internal
+            }
+        }
+        from public {
+            firewall {
+                name public-2-internal
+            }
+        }
+        interface bond0
+        interface bond0v1
+    }
+    zone local {
+        default-action drop
+        description "Local zone (Vyatta itself)"
+        from external {
+            firewall {
+                name external-2-local
+            }
+        }
+        from internal {
+            firewall {
+                name internal-2-local
+            }
+        }
+        from private {
+            firewall {
+                name private-2-local
+            }
+        }
+        from public {
+            firewall {
+                name public-2-local
+            }
+        }
+        local-zone
+    }
+    zone private {
+        default-action drop
+        description "Private zone, servers vlan"
+        from external {
+            firewall {
+                name external-2-private
+            }
+        }
+        from internal {
+            firewall {
+                name internal-2-private
+            }
+        }
+        from local {
+            firewall {
+                name local-2-private
+            }
+        }
+        from public {
+            firewall {
+                name public-2-private
+            }
+        }
+        interface bond0.#VYATTA_VIF_PRIVATE_VLAN_ID#
+    }
+    zone public {
+        default-action drop
+        description "Public zone - DMZ"
+        from external {
+            firewall {
+                name external-2-public
+            }
+        }
+        from internal {
+            firewall {
+                name internal-2-public
+            }
+        }
+        from local {
+            firewall {
+                name local-2-public
+            }
+        }
+        from private {
+            firewall {
+                name private-2-public
+            }
+        }
+        interface bond1.#VYATTA_VIF_PRIVATE_VLAN_ID#
+    }
+}
